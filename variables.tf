@@ -5,14 +5,17 @@
 
 variable "ca_public_key_file_path" {
   description = "Write the PEM-encoded CA certificate public key to this path (e.g. /etc/tls/ca.crt.pem)."
+  default = "tls/ca.crt.pem"
 }
 
 variable "public_key_file_path" {
   description = "Write the PEM-encoded certificate public key to this path (e.g. /etc/tls/vault.crt.pem)."
+  default = "tls/vault.crt.pem"
 }
 
 variable "private_key_file_path" {
   description = "Write the PEM-encoded certificate private key to this path (e.g. /etc/tls/vault.key.pem)."
+  default = "tls/vault.key.pem"
 }
 
 variable "owner" {
@@ -34,15 +37,18 @@ variable "common_name" {
 variable "dns_names" {
   description = "List of DNS names for which the certificate will be valid (e.g. vault.service.consul, foo.example.com)."
   type        = "list"
+  default = ["vault.service.consul"]
 }
 
 variable "ip_addresses" {
   description = "List of IP addresses for which the certificate will be valid (e.g. 127.0.0.1)."
   type        = "list"
+  default = ["127.0.0.1"]
 }
 
 variable "validity_period_hours" {
   description = "The number of hours after initial issuing that the certificate will become invalid."
+  default = 768
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
